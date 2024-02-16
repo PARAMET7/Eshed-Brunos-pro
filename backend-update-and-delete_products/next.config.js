@@ -13,6 +13,15 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "brunos.b-cdn.net",
+        port: "",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;

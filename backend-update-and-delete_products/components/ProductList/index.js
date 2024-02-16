@@ -4,6 +4,7 @@ import { StyledLink } from "../Link/Link.styled";
 
 export default function ProductList() {
   const { data, isLoading } = useSWR("/api/products");
+  console.log("data=>",data);
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -15,7 +16,7 @@ export default function ProductList() {
 
   return (
     <>
-      <StyledHeading>Available Fishes</StyledHeading>
+      <StyledHeading>Available Items</StyledHeading>
       <StyledList>
         {data.map((product) => (
           <li key={product._id}>

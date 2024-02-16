@@ -30,7 +30,7 @@ export default function ProductForm() {
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>Add a new Fish</StyledHeading>
+      <StyledHeading>Add a new Item</StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
         <input type="text" id="name" name="name" />
