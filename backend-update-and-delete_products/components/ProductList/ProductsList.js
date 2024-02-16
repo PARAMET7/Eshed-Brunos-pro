@@ -1,3 +1,4 @@
+//ProductsList.js
 import useSWR from "swr";
 import { StyledHeading, StyledList } from "./ProductList.styled";
 import { StyledLink } from "../Link/Link.styled";
@@ -18,9 +19,9 @@ export default function ProductList() {
     <>
       <StyledHeading>Available Items</StyledHeading>
       <StyledList>
-        {data.map((product) => (
-          <li key={product._id}>
-            <StyledLink href={`/${product._id}`}>{product.name}</StyledLink>
+        {data.map((products) => (
+          <li key={products._id}>
+            <StyledLink href={`/${products._id}`}>{products.name}</StyledLink>
           </li>
         ))}
       </StyledList>

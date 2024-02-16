@@ -1,9 +1,8 @@
-import ProductList from "../components/ProductList";
+import ProductList from "@/components/ProductList/ProductsList";
 import styled from "styled-components";
 import ProductForm from "../components/ProductForm";
 import { StyledImage } from "@/components/StyledImage/StyledImage";
 import useSWR from "swr";
-import  Headline  from "../components/TiltleBar";
 import Card from "@/components/Card/Card";
 import { StyledLink } from "@/components/Link/Link.styled";
 import Link from "next/link.js";
@@ -57,12 +56,16 @@ export default function HomePage() {
           <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={600} height={150}/>
         {/* </Headline> */}
       </div>
+      <ProductList />
       <List role="list">
         {data.map((p) => {
           return (
             <ListItem key={p.id}>
               <Card
                 name={p.name}
+                price={p.price}
+                currency={p.currency}
+                category={p.category}
                 image={p.image}
                 id={`${p._id.$oid ?? p._id}`}
               />
@@ -71,14 +74,14 @@ export default function HomePage() {
         })}
       </List>
       <Heading>
-        <span role="img" aria-label="A fish">
-
+        <span role="img" aria-label="A Product">
         </span>
         BERLIN
       </Heading>
-      <ProductForm />
+
       <hr />
-      <ProductList />
+
+      <ProductForm />
       <Link href="/create" passHref legacyBehavior>
         <FixedLink>+</FixedLink>
       </Link>

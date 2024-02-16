@@ -7,15 +7,16 @@ const Article = styled.article`
   border-radius: 0.8rem;
   padding: 0.5rem;
   z-index: 1;
-  background-color: rgba(213, 202, 235, 0.35);
+  background-color: rgba(0, 0, 0, 0);
 `;
+
 const Figure = styled.figure`
   ${'' /* position: relative; */}
   border-box: box-sizing;
   margin: 2px;
   border:1px;
   padding: 3px;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
   z-index: 0;
   display: flex;
   flex-direction: column;
@@ -25,9 +26,9 @@ const Figure = styled.figure`
 const ImageContainer = styled.div`
   ${'' /* position: relative; */}
   z-index: -1;
-  border-radius: 0.8rem;
+  border-radius: 1rem;
 
-  height: 10rem;
+  height: 20rem;
   margin: 5px;
 `;
 
@@ -39,7 +40,7 @@ const StyledCaptionContainer = styled.div`
 `
 
 
-const StyledPlace = styled.p`
+const StyledProduct = styled.p`
 text-align: left;
 margin: 5px;
 padding:5px;
@@ -86,7 +87,7 @@ const ScreenReaderOnly = styled.span`
   border-width: 0;
 `;
 
-export default function Card({ name, image, location, id }) {
+export default function Card({ name, price, currency, category, image, id }) {
   return (
     <Article>
       <Figure>
@@ -101,11 +102,13 @@ export default function Card({ name, image, location, id }) {
           />
         </ImageContainer>
         <StyledCaptionContainer>
-          <StyledPlace>{name}</StyledPlace>
-          <StyledLocation>📍 {location}</StyledLocation>
+          <StyledProduct>{name}</StyledProduct>
+          <StyledProduct>{price}</StyledProduct>
+          <StyledProduct>{currency}</StyledProduct>
+          <StyledProduct>{category}</StyledProduct>
         </StyledCaptionContainer>
       </Figure>
-      <Link href={`places/${id}`} passHref legacyBehavior>
+      <Link href={`products/${id}`} passHref legacyBehavior>
         <Anchor>
           <ScreenReaderOnly>More Info</ScreenReaderOnly>
         </Anchor>

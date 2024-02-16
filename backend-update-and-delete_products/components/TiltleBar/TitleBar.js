@@ -1,3 +1,4 @@
+//TitleBar.js
 import styled from "styled-components";
 
 const Headline = styled.h1`
@@ -5,13 +6,13 @@ const Headline = styled.h1`
   top: 0;
   left: 0;
   width: 100%;
-  background-color: black;
+  background-color: pink;
   margin: 0;
-  padding: 30px;
+  padding: 20px;
   text-align: center;
   z-index: 100;
 `;
 
 export default function TitleBar() {
-  return <Headline></Headline>;
+  return <Headline>shop</Headline>;
 }
