@@ -66,7 +66,7 @@ export default function HomePage() {
                 price={p.price}
                 currency={p.currency}
                 category={p.category}
-                image={p.image}
+                image={p.image_url}
                 id={`${p._id.$oid ?? p._id}`}
               />
             </ListItem>

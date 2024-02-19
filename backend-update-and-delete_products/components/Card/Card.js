@@ -2,6 +2,7 @@
 import Link from "next/link.js";
 import styled from "styled-components";
 import { StyledImage } from "../StyledImage/StyledImage";
+import Image from 'next/image';
 
 const Article = styled.article`
   border-radius: 0.8rem;
@@ -88,6 +89,8 @@ const ScreenReaderOnly = styled.span`
 `;
 
 export default function Card({ name, price, currency, category, image, id }) {
+  console.log(Image);
+
   return (
     <Article>
       <Figure>
@@ -100,6 +103,7 @@ export default function Card({ name, price, currency, category, image, id }) {
               33vw"
             alt=""
           />
+
         </ImageContainer>
         <StyledCaptionContainer>
           <StyledProduct>{name}</StyledProduct>
