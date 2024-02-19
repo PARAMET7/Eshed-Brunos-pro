@@ -28,7 +28,7 @@ const ListItem = styled.li`
 
 const Heading = styled.h1`
   text-align: center;
-  color: var(--color-nemo);
+  color: black;
 `;
 
 const FixedLink = styled(StyledLink)`
@@ -56,7 +56,7 @@ export default function HomePage() {
           <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={600} height={150}/>
         {/* </Headline> */}
       </div>
-      <ProductList />
+
       <List role="list">
         {data.map((p) => {
           return (
@@ -73,6 +73,7 @@ export default function HomePage() {
           );
         })}
       </List>
+      <ProductList />
       <Heading>
         <span role="img" aria-label="A Product">
         </span>

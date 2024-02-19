@@ -28,7 +28,6 @@ const ImageContainer = styled.div`
   ${'' /* position: relative; */}
   z-index: -1;
   border-radius: 1rem;
-
   height: 20rem;
   margin: 5px;
 `;
@@ -37,32 +36,29 @@ const StyledCaptionContainer = styled.div`
  display: flex;
   flex-direction: row;
   justify-content: space-between;
-
 `
-
 
 const StyledProduct = styled.p`
 text-align: left;
 margin: 5px;
 padding:5px;
 font-size:20px;
-font-family: Comic Sans MS;
+font-family: Arial, Helvetica, sans-serif;
 font-weight: 900;
-color:white;
+color:black;
 z-index: 5;
 `;
 
-const StyledLocation = styled.p`
-text-align: right;
-margin: 5px;
-padding:5px;
-font-size:15px;
-font-family: Comic Sans MS;
-font-weight: 900;
-color:white;
-z-index: 5;
-
-`
+// const StyledLocation = styled.p`
+// text-align: right;
+// margin: 5px;
+// padding:5px;
+// font-size:15px;
+// font-family: Arial, Helvetica, sans-serif:
+// font-weight: 900;
+// color:black;
+// z-index: 5;
+// `
 
 const Anchor = styled.a`
   &::after {
