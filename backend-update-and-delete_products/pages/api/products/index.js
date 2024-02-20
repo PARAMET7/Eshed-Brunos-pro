@@ -9,7 +9,7 @@ export default async function handler(request, response) {
   const { id } = request.query;
 
   if (request.method === "GET") {
-    const products = await Product.find(id);
+    const products = await Product.find();
 
     if (!products) { return response.status(405).json({ message: "Method not allowed" });
     }

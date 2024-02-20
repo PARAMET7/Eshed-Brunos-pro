@@ -5,6 +5,7 @@
     "price": 24.99,
     "currency": "EUR",
     "category": "BARCODE BERLIN",
+    "variations":[{'image': 'picture1', color: 'red',image_url: ""},{'image': 'picture2', color: 'blue', image_url: ""}],
     "image_url": "https://brunos.b-cdn.net/media/84/27/99/1690706720/0000804872_Barcode_tank-top-salvo_Black-Red_front.jpg?width=1920"
   },
   {

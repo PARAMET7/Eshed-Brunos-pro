@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 import Image from "next/image";
 import styled from "styled-components";
 
@@ -22,7 +22,7 @@ export default function FavoriteButton({isFavorite, onToggleFavorite}) {
   return (
     <StyledButton
       className="favorite-button"
-      aria-label="Save this art piece as favorite"
+      aria-label="Save this art product as favorite"
       onClick={onToggleFavorite}
       position={(10, 10)}
     >

@@ -68,6 +68,7 @@ export default function HomePage() {
                 category={p.category}
                 image={p.image_url}
                 id={`${p._id.$oid ?? p._id}`}
+                
               />
             </ListItem>
           );

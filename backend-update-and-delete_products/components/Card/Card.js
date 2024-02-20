@@ -3,6 +3,7 @@ import Link from "next/link.js";
 import styled from "styled-components";
 import { StyledImage } from "../StyledImage/StyledImage";
 import Image from 'next/image';
+//import { FavoriteButton } from "..Button/FavoriteButton";
 
 const Article = styled.article`
   border-radius: 0.8rem;
@@ -84,7 +85,7 @@ const ScreenReaderOnly = styled.span`
   border-width: 0;
 `;
 
-export default function Card({ name, price, currency, category, image, id }) {
+export default function Card({ name, price, currency, category, image, id , onToggleFavorite}) {
   console.log(Image);
 
   return (
@@ -113,6 +114,7 @@ export default function Card({ name, price, currency, category, image, id }) {
           <ScreenReaderOnly>More Info</ScreenReaderOnly>
         </Anchor>
       </Link>
+      {/* <FavoriteButton onToggleFavorite={onToggleFavorite}/> */}
     </Article>
   );
 }

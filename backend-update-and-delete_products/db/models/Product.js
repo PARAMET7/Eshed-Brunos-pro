@@ -8,8 +8,8 @@ const productSchema = new Schema({
   currency: { type: String, required: true },
   category: { type: String, required: true },
   image_url: { type: String, required: true },
+  //variations : [{type: Array, required: true }]
   // reviews: { type: [Schema.Types.ObjectId], ref: "Review" },
-
 });
 
 const Product =
