@@ -30,9 +30,9 @@ export default function CreateProductPage() {
 
   return (
     <>
-      <Link href="/" passHref legacyBehavior>
-        <StyledBackLink>⬅</StyledBackLink>
-      </Link>
+      {/* <Link href="/" passHref legacyBehavior>
+        <StyledBackLink>⬅Back</StyledBackLink>
+      </Link> */}
       <h2 id="add-product">Add Product</h2>
       <Form onSubmit={handleAddProduct} formName={"add-product"} />
     </>

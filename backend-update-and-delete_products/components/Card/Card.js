@@ -6,6 +6,7 @@ import Image from 'next/image';
 //import { FavoriteButton } from "..Button/FavoriteButton";
 
 const Article = styled.article`
+  margin-top: 20px;
   border-radius: 0.8rem;
   padding: 0.5rem;
   z-index: 1;
@@ -34,7 +35,7 @@ const ImageContainer = styled.div`
 `;
 
 const StyledCaptionContainer = styled.div`
- display: flex;
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
 `
@@ -43,7 +44,7 @@ const StyledProduct = styled.p`
 text-align: left;
 margin: 5px;
 padding:5px;
-font-size:20px;
+font-size:15px;
 font-family: Arial, Helvetica, sans-serif;
 font-weight: 900;
 color:black;
@@ -85,12 +86,26 @@ const ScreenReaderOnly = styled.span`
   border-width: 0;
 `;
 
+const StyledFrameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  padding: 10px;
+  opacity: 0.6;
+  margin:0;
+  width: 100%;
+`
+
 export default function Card({ name, price, currency, category, image, id , onToggleFavorite}) {
   console.log(Image);
 
   return (
+
     <Article>
+
       <Figure>
+
         <ImageContainer>
           <StyledImage
             src={image}
@@ -103,10 +118,12 @@ export default function Card({ name, price, currency, category, image, id , onTo
 
         </ImageContainer>
         <StyledCaptionContainer>
-          <StyledProduct>{name}</StyledProduct>
-          <StyledProduct>{price}</StyledProduct>
-          <StyledProduct>{currency}</StyledProduct>
-          <StyledProduct>{category}</StyledProduct>
+          <StyledFrameContainer>
+            <StyledProduct>{name}</StyledProduct>
+            <StyledProduct>{price}</StyledProduct>
+            <StyledProduct>{currency}</StyledProduct>
+            <StyledProduct>{category}</StyledProduct>
+          </StyledFrameContainer>
         </StyledCaptionContainer>
       </Figure>
       <Link href={`products/${id}`} passHref legacyBehavior>

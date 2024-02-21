@@ -10,11 +10,13 @@
     "test": "jest --watchAll"
   },
   "dependencies": {
+    "@auth/mongodb-adapter": "^2.4.0",
     "@mantine/core": "^7.5.3",
     "@mantine/hooks": "^7.5.3",
     "@next/font": "^13.0.6",
     "eslint": "8.43.0",
     "eslint-config-next": "13.4.7",
+    "mongodb": "^6.3.0",
     "mongoose": "^6.8.2",
     "next": "13.4.7",
     "next-auth": "^4.24.6",

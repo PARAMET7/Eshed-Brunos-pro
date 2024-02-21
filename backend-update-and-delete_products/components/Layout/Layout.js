@@ -7,7 +7,7 @@ import Head from "next/head.js";
 const Main = styled.main`
   display: grid;
   gap: 0.5rem;
-  margin-top: 5rem;
+  margin-top: 9rem;
   padding: 0.5rem;
   position: relative;
   width: 100%;

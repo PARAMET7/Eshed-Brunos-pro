@@ -22,6 +22,8 @@ const List = styled.ul`
 `;
 
 const ListItem = styled.li`
+  gap: 10rem;
+  padding: 15px;
   position: relative;
   align-items: center;
   width: 400px;
@@ -38,12 +40,11 @@ const FixedLink = styled(StyledLink)`
   bottom: 50px;
   right: 50px;
   font-size: 50px;
-  width: 60px;
-  height: 60px;
+  width: 70px;
+  height: 70px;
   padding: 1px;
   text-align: center;
   margin: auto;
-
   border-radius: 500px;
   box-shadow: 2px 2px 15px 0.5px RGB(177, 156, 217);
 `;
@@ -52,13 +53,8 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
   const { data } = useSWR("/api/products", { fallbackData: [] });
   return (
     <>
-          <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={600} height={150}/>
-      <div>
-        {/* <Headline> */}
-        {/* </Headline> */}
-      </div>
-        <Link href={"./login"} ><button>Login</button></Link>
 
+      <br/>
       <List role="list">
         {/* <FavoriteButton isFavorite={} onToggleFavorite={onToggleFavorite}/> */}
         <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
@@ -88,9 +84,9 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
 
       <hr />
 
-      <ProductForm />
+      {/* <ProductForm /> */}
       <Link href="/create" passHref legacyBehavior>
-        <FixedLink>+</FixedLink>
+        <FixedLink> 🛒 </FixedLink>
       </Link>
     </>
   );

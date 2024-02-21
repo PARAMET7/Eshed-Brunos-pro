@@ -9,7 +9,7 @@ export default createGlobalStyle`
 
     --gap: 20px;
   }
-  
+
   *,
   *::before,
   *::after {

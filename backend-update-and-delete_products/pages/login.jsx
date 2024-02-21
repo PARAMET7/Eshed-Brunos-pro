@@ -20,9 +20,7 @@ export default function Component() {
       if (session) {
         return (
           <div>
-            <Link href="/" passHref legacyBehavior>
-                <StyledBackLink>⬅</StyledBackLink>
-            </Link>
+            
             <p>Wellcome, {session.user.email}</p>
             <img src={session.user.image} alt="" style={{ borderRadius: '50px' }} />
             <button onClick={()=> signOut()}>Sign out</button>
