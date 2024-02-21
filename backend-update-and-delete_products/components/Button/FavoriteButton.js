@@ -12,12 +12,12 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-export default function FavoriteButton({isFavorite, onToggleFavorite}) {
+export default function FavoriteButton({isFavorite, productId}) {
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  // const onToggleFavorite = () => {
-  //   setIsFavorite(!isFavorite);
-  // };
+  const onToggleFavorite = () => {
+  console.log("productId=>", productId);
+  };
 
   return (
     <StyledButton

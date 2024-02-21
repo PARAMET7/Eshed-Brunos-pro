@@ -3,7 +3,8 @@ import Link from "next/link.js";
 import styled from "styled-components";
 import { StyledImage } from "../StyledImage/StyledImage";
 import Image from 'next/image';
-//import { FavoriteButton } from "..Button/FavoriteButton";
+import  FavoriteButton  from "../Button/FavoriteButton";
+
 
 const Article = styled.article`
   margin-top: 20px;
@@ -115,9 +116,10 @@ export default function Card({ name, price, currency, category, image, id , onTo
               33vw"
             alt=""
           />
-
         </ImageContainer>
         <StyledCaptionContainer>
+        <FavoriteButton productId={id}/>
+
           <StyledFrameContainer>
             <StyledProduct>{name}</StyledProduct>
             <StyledProduct>{price}</StyledProduct>
@@ -127,9 +129,7 @@ export default function Card({ name, price, currency, category, image, id , onTo
         </StyledCaptionContainer>
       </Figure>
       <Link href={`products/${id}`} passHref legacyBehavior>
-        <Anchor>
-          <ScreenReaderOnly>More Info</ScreenReaderOnly>
-        </Anchor>
+        More Info
       </Link>
       {/* <FavoriteButton onToggleFavorite={onToggleFavorite}/> */}
     </Article>

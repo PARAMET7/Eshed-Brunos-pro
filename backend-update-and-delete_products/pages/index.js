@@ -7,7 +7,6 @@ import Card from "@/components/Card/Card";
 import { StyledLink } from "@/components/Link/Link.styled";
 import Link from "next/link.js";
 import ProPieces from "@/components/Pro/ProPieces";
-import FavoriteButton from "@/components/Button/FavoriteButton";
 
 const List = styled.ul`
   list-style: none;
@@ -56,7 +55,6 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
 
       <br/>
       <List role="list">
-        {/* <FavoriteButton isFavorite={} onToggleFavorite={onToggleFavorite}/> */}
         <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
 
         {data.map((p) => {
