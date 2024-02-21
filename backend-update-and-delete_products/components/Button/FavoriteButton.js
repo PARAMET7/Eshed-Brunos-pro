@@ -27,7 +27,7 @@ export default function FavoriteButton({isFavorite, onToggleFavorite}) {
       position={(10, 10)}
     >
         <Image
-          src={ isFavorite ? "/assets/filledicon.svg" : "/assets/unfilledicon.svg"}
+          src={ isFavorite ? "/assets/heart.svg" : "/assets/unfilledicon.svg"}
           alt="An outlined heart"
           width={24}
           height={24}

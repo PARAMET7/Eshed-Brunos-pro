@@ -6,7 +6,8 @@ import useSWR from "swr";
 import Card from "@/components/Card/Card";
 import { StyledLink } from "@/components/Link/Link.styled";
 import Link from "next/link.js";
-
+import ProPieces from "@/components/Pro/ProPieces";
+import FavoriteButton from "@/components/Button/FavoriteButton";
 
 const List = styled.ul`
   list-style: none;
@@ -47,17 +48,21 @@ const FixedLink = styled(StyledLink)`
   box-shadow: 2px 2px 15px 0.5px RGB(177, 156, 217);
 `;
 
-export default function HomePage() {
+export default function HomePage({ product, roductInfo, onToggleFavorite }) {
   const { data } = useSWR("/api/products", { fallbackData: [] });
   return (
     <>
+          <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={600} height={150}/>
       <div>
         {/* <Headline> */}
-          <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={600} height={150}/>
         {/* </Headline> */}
       </div>
+        <Link href={"./login"} ><button>Login</button></Link>
 
       <List role="list">
+        {/* <FavoriteButton isFavorite={} onToggleFavorite={onToggleFavorite}/> */}
+        <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
+
         {data.map((p) => {
           return (
             <ListItem key={p.id}>
@@ -68,13 +73,13 @@ export default function HomePage() {
                 category={p.category}
                 image={p.image_url}
                 id={`${p._id.$oid ?? p._id}`}
-                
+
               />
             </ListItem>
           );
         })}
       </List>
-      <ProductList />
+      {/* <ProductList /> */}
       <Heading>
         <span role="img" aria-label="A Product">
         </span>
