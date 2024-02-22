@@ -118,7 +118,7 @@ export default function Card({ name, price, currency, category, image, id , onTo
           />
         </ImageContainer>
         <StyledCaptionContainer>
-        <FavoriteButton productId={id}/>
+        <FavoriteButton productId={id} onToggleFavorite={onToggleFavorite}/>
 
           <StyledFrameContainer>
             <StyledProduct>{name}</StyledProduct>
@@ -128,10 +128,11 @@ export default function Card({ name, price, currency, category, image, id , onTo
           </StyledFrameContainer>
         </StyledCaptionContainer>
       </Figure>
-      <Link href={`products/${id}`} passHref legacyBehavior>
-        More Info
-      </Link>
-      {/* <FavoriteButton onToggleFavorite={onToggleFavorite}/> */}
+      <button>
+        <Link href={`products/${id}`} passHref legacyBehavior>
+          More Info
+        </Link>
+      </button>
     </Article>
   );
 }

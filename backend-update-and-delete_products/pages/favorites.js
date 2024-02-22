@@ -1,20 +1,21 @@
-// import ArtPieces from "@/components/Art";
+import ProPieces from "@/components/Pro/ProPieces";
 
-export default function favorite() {
-  // const favoriteList = pieces.filter((artPiece) =>
-  //   artPiecesInfo.find(
-  //     (artpicesInfo) => artpicesInfo.slug === artPiece.slug && artpicesInfo.isFavorite
-  //   )
-  // );
+
+export default function favorite({pro, isFavorite, onToggleFavorite, PInfo}) {
+  const favoriteList = pro.filter((p) =>
+    PInfo.find(
+      (pInfo) => pInfo.id === p.id && pInfo.isFavorite
+    )
+  );
   return (
     <>
-      <h1>Your Favourite Pieces</h1>
-    {/* <ArtPieces
+      <h1>Your checkout list</h1>
+    <ProPieces
       isFavorite={isFavorite}
       onToggleFavorite={onToggleFavorite}
-      pieces={favoriteList}
-      artPiecesInfo={artPiecesInfo}
-      /> */}
+      pro={favoriteList}
+      PInfo={PInfo}
+      />
     </>
   );
 }
