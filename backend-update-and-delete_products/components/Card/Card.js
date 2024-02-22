@@ -136,3 +136,17 @@ export default function Card({ name, price, currency, category, image, id , onTo
     </Article>
   );
 }
+
+
+// {pieces?.map((piece) => (
+//   div key={piece.slug}
+//     <ArtPiecePreview
+//       title={piece.name}
+//       image={piece.imageSource}
+//       artist={piece.artist}
+//       name={piece.name}
+//       slug={piece.slug}
+//       isFavorite={
+//         artPiecesInfo?.find((artPiece) => artPiece.slug === piece.slug)
+//           ?.isFavorite
+//       }

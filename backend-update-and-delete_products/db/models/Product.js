@@ -1,5 +1,6 @@
 import mongoose from "mongoose";
-import "./Review";
+// import "./Review";
+// import "./User";
 const { Schema } = mongoose;
 
 const productSchema = new Schema({
@@ -12,7 +13,6 @@ const productSchema = new Schema({
   // reviews: { type: [Schema.Types.ObjectId], ref: "Review" },
 });
 
-const Product =
-  mongoose.models.Product || mongoose.model("Product", productSchema);
+const Product = mongoose.models.Product || mongoose.model("Product", productSchema);
 
 export default Product;

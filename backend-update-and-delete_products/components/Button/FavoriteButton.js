@@ -1,7 +1,9 @@
 
 // import { useState } from "react";
+// import Checkout from "@/db/models/Checkout";
 import Image from "next/image";
 import styled from "styled-components";
+import Checkout from "@/pages/checkout/[id]";
 
 const StyledButton = styled.button`
   position: relative;
@@ -25,10 +27,12 @@ const icon = styled.header`
 export default function FavoriteButton({isFavorite, productId}) {
   // const [isFavorite, setIsFavorite] = useState(false);
 
-  const onToggleFavorite = () => {
+  const onToggleFavorite = async () => {
   console.log("productId=>", productId);
+  // await Checkout.create({ userId: '65d60d41c8aa85df5a737cce', products: ['65cdf6e36b3b635beee1acd5']})
 
-  };
+  // //console.log("productId=>", productId);
+   };
 
   return (
 
@@ -44,7 +48,7 @@ export default function FavoriteButton({isFavorite, productId}) {
           alt="An outlined heart"
           width={24}
           height={24}
-          alt = {isFavorite ? "Liked" : "Not liked"}
+
         />
 
       </StyledButton>

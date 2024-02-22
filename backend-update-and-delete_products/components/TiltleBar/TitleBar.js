@@ -3,7 +3,9 @@ import styled from "styled-components";
 import { StyledImage } from "@/components/StyledImage/StyledImage";
 import Link from "next/link.js";
 import { StyledLink } from "@/components/Link/Link.styled";
-
+import React from "react";
+//import { Link } from "react-router-dom";
+import { ShoppingCart } from "phosphor-react";
 
 const FixedLink = styled(StyledLink)`
   background-color: black;
@@ -21,6 +23,8 @@ const Headline = styled.h1`
   z-index: 100;
 `;
 
+
+
 export default function TitleBar() {
   return (
     <Headline>
@@ -32,6 +36,7 @@ export default function TitleBar() {
         </Link>
         <br/>
         <Link href={"./login"} ><button>Login</button></Link>
+
     </Headline>
   );
 }

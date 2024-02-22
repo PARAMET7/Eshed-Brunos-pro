@@ -33,7 +33,7 @@ export function ProPiecesPreview({
         </Group>
       </Card>
     </Link>
-    <FavoriteButton isFavorite={isFavorite} onToggleFavorite={() => onToggleFavorite(slug)} />
+    <FavoriteButton isFavorite={isFavorite} onToggleFavorite={() => onToggleFavorite(id)} />
     </>
   );
 }

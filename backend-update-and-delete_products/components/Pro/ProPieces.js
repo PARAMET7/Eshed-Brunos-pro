@@ -4,9 +4,9 @@ import classes from "./ArtPiecePreview.module.css";
 
 
 
-export default function ProPieces({ product, productInfo, onToggleFavorite }) {
+export default function ProPieces({ product, productInfo, onToggleFavorite}) {
 // console.log(product);
-console.log('productInfo=>',productInfo);
+console.log('productInfo===>',productInfo);
   return (
     <ul className={classes.ul}>
       {product?.map((pro) => {
@@ -19,7 +19,7 @@ console.log('productInfo=>',productInfo);
               isFavorite={
                 productInfo?.find((productInfo) => productInfo.id === pro.id)?.isFavorite
               }
-              onToggleFavorite={onToggleFavorite}
+              onToggleFavorite={() => onToggleFavorite(pro.id)}
             />
           </div>
         );
