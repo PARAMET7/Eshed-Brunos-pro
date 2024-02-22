@@ -1,8 +1,8 @@
 import { useRouter } from "next/router";
 import Link from "next/link";
 import useSWR from "swr";
-import Form from "../../../components/Form.js";
-import { StyledLink } from "../../../components/StyledLink.js";
+import Form from "../components/Form/Form.js";
+import { StyledLink } from "../components/StyledLink/StyledLink.js";
 import styled from "styled-components";
 
 const StyledBackLink = styled(StyledLink)`
