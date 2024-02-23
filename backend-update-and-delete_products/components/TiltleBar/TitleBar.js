@@ -51,10 +51,10 @@ export default function TitleBar() {
         </Link>
         <br/>
         <Link href={"./login"} ><button>Login</button></Link>
-        <Link href={"./checkout"}>
-          <FixedLinkButton> 🛒 </FixedLinkButton>
+        {/* <Link href={"./checkout"}> */}
+          <FixedLinkButton href={`/checkout`}> 🛒 </FixedLinkButton>
           {/* <button>lLogin</button> */}
-        </Link>
+        {/* </Link> */}
     </Headline>
   );
 }

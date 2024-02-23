@@ -8,6 +8,7 @@ import { StyledLink } from "@/components/Link/Link.styled";
 import Link from "next/link.js";
 import ProPieces from "@/components/Pro/ProPieces";
 
+
 const List = styled.ul`
   list-style: none;
   display: flex;
@@ -49,6 +50,7 @@ const FixedLink = styled(StyledLink)`
 `;
 
 export default function HomePage({ product, roductInfo, onToggleFavorite }) {
+  console.log('========',onToggleFavorite);
   const { data } = useSWR("/api/products", { fallbackData: [] });
   return (
     <>
@@ -83,9 +85,9 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
       <hr />
 
       {/* <ProductForm /> */}
-      <Link href="/create" passHref legacyBehavior>
-        <FixedLink> 🔎 </FixedLink>
-      </Link>
+      {/* <Link href="/create" passHref legacyBehavior> */}
+        <FixedLink href='/create' > 🔎 </FixedLink>
+      {/* </Link> */}
     </>
   );
 }

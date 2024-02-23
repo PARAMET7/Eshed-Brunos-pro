@@ -1,5 +1,5 @@
 //Card.js
-import Link from "next/link.js";
+import Link from "next/link";
 import styled from "styled-components";
 import { StyledImage } from "../StyledImage/StyledImage";
 import Image from 'next/image';
@@ -15,7 +15,7 @@ const Article = styled.article`
 `;
 
 const Figure = styled.figure`
-  ${'' /* position: relative; */}
+
   border-box: box-sizing;
   margin: 2px;
   border:1px;
@@ -63,17 +63,17 @@ z-index: 5;
 // z-index: 5;
 // `
 
-const Anchor = styled.a`
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
-`;
+// const Anchor = styled.Link`
+//   &::after {
+//     content: "";
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     bottom: 0;
+//     left: 0;
+//     right: 0;
+//   }
+// `;
 
 const ScreenReaderOnly = styled.span`
   position: absolute;
@@ -128,11 +128,11 @@ export default function Card({ name, price, currency, category, image, id , onTo
           </StyledFrameContainer>
         </StyledCaptionContainer>
       </Figure>
-      <button>
-        <Link href={`products/${id}`} passHref legacyBehavior>
+
+        <Link href={`products/${id}`}  >
           More Info
         </Link>
-      </button>
+
     </Article>
   );
 }
