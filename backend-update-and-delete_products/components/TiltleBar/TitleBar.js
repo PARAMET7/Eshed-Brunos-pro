@@ -2,10 +2,12 @@
 import styled from "styled-components";
 import { StyledImage } from "@/components/StyledImage/StyledImage";
 import Link from "next/link.js";
-import { StyledLink } from "@/components/Link/Link.styled";
+// import { StyledLink } from "@/components/Link/Link.styled";
 import React from "react";
 //import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
+import { StyledLink } from "../StyledLink/StyledLink";
+
 
 const FixedLink = styled(StyledLink)`
   background-color: black;
@@ -23,7 +25,21 @@ const Headline = styled.h1`
   z-index: 100;
 `;
 
-
+const FixedLinkButton = styled(StyledLink)`
+  z-index: 100;
+  position: fixed;
+  top: 50px;
+  right: 50px;
+  font-size: 50px;
+  width: 70px;
+  height: 70px;
+  padding: 1px;
+  text-align: center;
+  margin: auto;
+  border-radius: 500px;
+  box-shadow: 2px 2px 15px 0.5px RGB(100, 100, 1000);
+  background-color: pink;
+`;
 
 export default function TitleBar() {
   return (
@@ -36,6 +52,11 @@ export default function TitleBar() {
         </Link>
         <br/>
         <Link href={"./login"} ><button>Login</button></Link>
+        <Link href={"./checkout"}>
+          <FixedLinkButton> 🛒 </FixedLinkButton>
+          {/* <button>lLogin</button> */}
+        </Link>
+
 
     </Headline>
   );

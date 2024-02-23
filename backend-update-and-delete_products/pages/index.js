@@ -84,7 +84,7 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
 
       {/* <ProductForm /> */}
       <Link href="/create" passHref legacyBehavior>
-        <FixedLink> 🛒 </FixedLink>
+        <FixedLink> 🔎 </FixedLink>
       </Link>
     </>
   );
