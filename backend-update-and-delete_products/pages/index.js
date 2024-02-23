@@ -70,6 +70,7 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
                 image={p.image_url}
                 id={`${p._id.$oid ?? p._id}`}
 
+
               />
             </ListItem>
           );
@@ -91,3 +92,5 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
     </>
   );
 }
+
+

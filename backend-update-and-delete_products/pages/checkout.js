@@ -6,9 +6,10 @@ import ProPieces from "@/components/Pro/ProPieces";
 import styled from "styled-components";
 // import Product from "@/db/models/Product";
 import Link from "next/link";
-import { useRouter } from "next/router.js";
+// import { useRouter } from "next/router.js";
 import { StyledImage } from "@/components/StyledImage/StyledImage";
 import { StyledButton } from "@/components/Button/Button.styled";
+import { useRouter } from "next/router";
 
 const ListItem = styled.li`
   gap: 10rem;
@@ -35,7 +36,9 @@ const ButtonContainer = styled.section`
   }
 `;
 
+
 export default function DetailsPage() {
+  // const [selectedProPiece, setSelectedProPiece] = useState(null);
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
@@ -44,14 +47,19 @@ export default function DetailsPage() {
     isLoading,
     error,
 
-  } = useSWR(`/api/checkout/${id}`);
+  } = useSWR(`api/checkout/${id}`);
+
+
+  // useEffect(() => {
+  //   setSelectedProPiece(pro.find((p) => p.id === id));
+  // }, [setSelectedProPiece, pro, id]);
 
   if (!isReady) return <h2>Not ready...</h2>;
   if (isLoading) return <h2>Loading...</h2>;
   if (error) return <h2>Error...</h2>;
 
   async function deleteProduct() {
-    await fetch(`/checkout/${id}`, {
+    await fetch(`api/checkout/${id}`, {
       method: "DELETE",
     });
     router.push("/");
@@ -77,7 +85,7 @@ export default function DetailsPage() {
           {product.name},
         </h2>
         <ButtonContainer>
-        <Link href={`/checkout/${place._id}/edit`} passHref legacyBehavior>
+        <Link href={`api/checkout/${product.id}`} passHref legacyBehavior>
 
         </Link>
         <StyledButton onClick={deleteProduct} type="button" variant="delete">
