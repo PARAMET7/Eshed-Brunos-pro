@@ -4,6 +4,7 @@ import Layout from "@/components/Layout/Layout.js";
 import {SessionProvider} from "next-auth/react";
 import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
 import useSWR from "swr";
+import { useState } from "react";
 
 const fetcher = async (...args) => {
   const response = await fetch(...args);
@@ -17,26 +18,31 @@ const fetcher = async (...args) => {
 export default function App({ Component, pageProps, session }) {
   const { data, isLoading, error } = useSWR(
     `https://eshed-brunos-pro.vercel.app/api/checkout`,
+    //  { fallbackData: [] },
     fetcher
   );
 //proPiecesInfo setProPiecesInfo
-  const [proPiecesInfo, setProPiecesInfo] = useImmerLocalStorageState(
-    "art-pieces-info",
-    { defaultValue: [] }
-  );
+  // const [proPiecesInfo, setProPiecesInfo] = useImmerLocalStorageState(
+  //   "id",
+  //   { defaultValue: [] }
+  // );
+  const [shopingCart, setShopingCart] = useState([]);
 
-  function handleToggleFavorite(id) {
-    const ProPiece = proPiecesInfo.find((p) => p.id === id);
+
+
+
+  function handleToggleShopingCart(id) {
+    const ProPiece = shopingCart.find((p) => p.id === id);
     if (ProPiece) {
-      setProPiecesInfo(
-        proPiecesInfo.map((pieceInfo) =>
-          pieceInfo.id === id
-            ? { id, isFavorite: !pieceInfo.isFavorite }
+      setShopingCart(
+        shopingCart.map((productInfo) =>
+          productInfo.id === id
+            ? { id, isFavorite: !productInfo.isFavorite }
             : pieceInfo
         )
       );
     } else {
-      setProPiecesInfo([...proPiecesInfo, { id, isFavorite: true }]);
+      setShopingCart([...shopingCart, { id, isFavorite: true }]);
     }
   }
   return (
@@ -55,9 +61,10 @@ export default function App({ Component, pageProps, session }) {
         <GlobalStyle />
           <SessionProvider session={session}>
             <Component {...pageProps}
-            pieces={isLoading || error ? [] : data}
-            proPiecesInfo={proPiecesInfo}
-            onToggleFavorite={handleToggleFavorite}
+            product={isLoading || error ? [] : data}
+            // proPiecesInfo={proPiecesInfo}
+            onToggleFavorite={handleToggleShopingCart}
+            shopingCart={shopingCart}
              />
           </SessionProvider>
       </Layout>

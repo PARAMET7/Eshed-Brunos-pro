@@ -50,11 +50,10 @@ const FixedLink = styled(StyledLink)`
 `;
 
 export default function HomePage({ product, roductInfo, onToggleFavorite }) {
-  console.log('========',onToggleFavorite);
+  console.log('========>',onToggleFavorite);
   const { data } = useSWR("/api/products", { fallbackData: [] });
   return (
     <>
-
       <br/>
       <List role="list">
         <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
@@ -69,8 +68,6 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
                 category={p.category}
                 image={p.image_url}
                 id={`${p._id.$oid ?? p._id}`}
-
-
               />
             </ListItem>
           );
@@ -92,5 +89,3 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
     </>
   );
 }
-
-

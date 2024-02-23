@@ -3,6 +3,8 @@ import connect from "@/db/Product";
 import { Product } from "@/db/models/Product";
 
 export default async function handler(request, response) {
+  await Checkout.create({ userId: '65d60d41c8aa85df5a737cce', products: ['65cdf6e36b3b635beee1acd5']})
+
   await connect();
 
   if (request.method === "GET") {
@@ -13,7 +15,7 @@ export default async function handler(request, response) {
   if (request.method === "POST") {
     try {
       const proData = request.body;
-      await Place.create(proData);
+      await Product.create(proData);
 
       response.status(201).json({ status: "product created" });
     } catch (error) {

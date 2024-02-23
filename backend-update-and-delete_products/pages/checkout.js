@@ -37,7 +37,7 @@ const ButtonContainer = styled.section`
 `;
 
 
-export default function DetailsPage() {
+export default function CheckoutPage() {
   // const [selectedProPiece, setSelectedProPiece] = useState(null);
   const router = useRouter();
   const { isReady } = router;
@@ -65,7 +65,7 @@ export default function DetailsPage() {
     router.push("/");
   }
 
-  console.log("favorites===>", favorites);
+  // console.log("favorites===>", favorites);
 
   return (
     <>
@@ -86,7 +86,6 @@ export default function DetailsPage() {
         </h2>
         <ButtonContainer>
         <Link href={`api/checkout/${product.id}`} passHref legacyBehavior>
-
         </Link>
         <StyledButton onClick={deleteProduct} type="button" variant="delete">
           Delete Location
