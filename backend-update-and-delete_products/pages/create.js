@@ -33,7 +33,7 @@ export default function CreateProductPage() {
       {/* <Link href="/" passHref legacyBehavior>
         <StyledBackLink>⬅Back</StyledBackLink>
       </Link> */}
-      <h2 id="add-product">Add Product</h2>
+      <h2 id="add-product">Search Product</h2>
       <Form onSubmit={handleAddProduct} formName={"add-product"} />
     </>
   );

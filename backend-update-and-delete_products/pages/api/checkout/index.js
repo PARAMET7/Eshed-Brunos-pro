@@ -3,7 +3,7 @@ import connect from "@/db/Product";
 import { Product } from "@/db/models/Product";
 
 export default async function handler(request, response) {
-  await Checkout.create({ userId: '65d60d41c8aa85df5a737cce', products: ['65cdf6e36b3b635beee1acd5']})
+  // await Checkout.create({ userId: '65d60d41c8aa85df5a737cce', products: ['65cdf6e36b3b635beee1acd5']})
 
   await connect();
 

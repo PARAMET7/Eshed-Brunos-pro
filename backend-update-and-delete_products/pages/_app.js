@@ -29,16 +29,14 @@ export default function App({ Component, pageProps, session }) {
   const [shopingCart, setShopingCart] = useState([]);
 
 
-
-
   function handleToggleShopingCart(id) {
-    const ProPiece = shopingCart.find((p) => p.id === id);
-    if (ProPiece) {
+    const Product = shopingCart.find((p) => p.id === id);
+    if (Product) {
       setShopingCart(
         shopingCart.map((productInfo) =>
           productInfo.id === id
             ? { id, isFavorite: !productInfo.isFavorite }
-            : pieceInfo
+            : productInfo
         )
       );
     } else {
@@ -62,9 +60,9 @@ export default function App({ Component, pageProps, session }) {
           <SessionProvider session={session}>
             <Component {...pageProps}
             product={isLoading || error ? [] : data}
-            // proPiecesInfo={proPiecesInfo}
-            onToggleFavorite={handleToggleShopingCart}
             shopingCart={shopingCart}
+            onToggleFavorite={handleToggleShopingCart}
+            
              />
           </SessionProvider>
       </Layout>

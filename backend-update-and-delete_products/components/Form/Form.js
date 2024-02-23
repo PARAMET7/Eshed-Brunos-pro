@@ -40,25 +40,25 @@ export default function Form({ onSubmit, formName, defaultData }) {
     <FormContainer aria-labelledby={formName} onSubmit={handleSubmit}>
       <Label htmlFor="name">Name</Label>
       <Input
-        id="name"
+        id="id"
         name="name"
         type="text"
-        defaultValue={defaultData?.name}
+        defaultValue={defaultData?.id}
       />
-      <Label htmlFor="image-url"> Image Url</Label>
+      {/* <Label htmlFor="image-url"> Image Url</Label>
       <Input
         id="image-url"
         name="image"
         type="text"
         defaultValue={defaultData?.image}
-      />
-      <Label htmlFor="location">Product</Label>
+      /> */}
+      {/* <Label htmlFor="location">Product</Label>
       <Input
         id="Product"
         name="Product"
         type="text"
         defaultValue={defaultData?.Product}
-      />
+      /> */}
 
       <Label htmlFor="description">Description</Label>
       <Textarea
@@ -69,7 +69,7 @@ export default function Form({ onSubmit, formName, defaultData }) {
         defaultValue={defaultData?.description}
       ></Textarea>
       <StyledButton type="submit">
-        {defaultData ? "Update place" : "Add product"}
+        {defaultData ? "Update product" : "Check product"}
       </StyledButton>
     </FormContainer>
   );
