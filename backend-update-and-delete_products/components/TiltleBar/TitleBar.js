@@ -44,7 +44,6 @@ const FixedLinkButton = styled(StyledLink)`
 export default function TitleBar() {
   return (
     <Headline>
-
         <Link href="/" passHref legacyBehavior>
           <FixedLink>
             <StyledImage src="https://brunos.b-cdn.net/media/7e/d4/c6/1658234762/Brunos_Logo_weiss_transparent_2016.png?width=3000" alt="Description of the image" width={100} height={70}/>
@@ -56,8 +55,6 @@ export default function TitleBar() {
           <FixedLinkButton> 🛒 </FixedLinkButton>
           {/* <button>lLogin</button> */}
         </Link>
-
-
     </Headline>
   );
 }
