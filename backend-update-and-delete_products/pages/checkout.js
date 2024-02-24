@@ -49,13 +49,14 @@ export default function CheckoutPage() {
 
   } = useSWR(`api/checkout/${id}`);
 
+  const loadingMessage = "Loading...";
 
   // useEffect(() => {
   //   setSelectedProPiece(pro.find((p) => p.id === id));
   // }, [setSelectedProPiece, pro, id]);
 
-  if (!isReady) return <h2>Not ready...</h2>;
-  if (isLoading) return <h2>Loading...</h2>;
+  if (!isReady) return <h2>{loadingMessage}</h2>;
+  if (isLoading) return <h2>{loadingMessage}</h2>;
   if (error) return <h2>Error...</h2>;
 
   async function deleteProduct() {
@@ -85,7 +86,7 @@ export default function CheckoutPage() {
           {product.name},
         </h2>
         <ButtonContainer>
-        <Link href={`api/checkout/${product.id}`} passHref legacyBehavior>
+        <Link href={`/checkout/${product.id}`} passHref legacyBehavior>
         </Link>
         <StyledButton onClick={deleteProduct} type="button" variant="delete">
           Delete Location

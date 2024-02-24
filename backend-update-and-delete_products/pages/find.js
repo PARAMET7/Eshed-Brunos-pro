@@ -11,7 +11,7 @@ const StyledBackLink = styled(StyledLink)`
   z-index: 101;
 `;
 
-export default function CreateProductPage() {
+export default function FindProductPage() {
   const router = useRouter();
 
   async function handleAddProduct(productsData) {

@@ -12,24 +12,24 @@ const StyledBackLink = styled(StyledLink)`
   z-index: 101;
 `;
 
-export default function EditPage() {
+export default function EditProduct() {
   const router = useRouter();
   const { isReady } = router;
   const { id } = router.query;
-  const { data: placeData, isLoading, error } = useSWR(`/api/places/${id}`);
-  console.log("edit.js  placeData: ", placeData);
+  const { data: proData, isLoading, error } = useSWR(`/api/checkout/${id}`);
+  console.log("edit.js  proData=>", proData);
 
-  async function editPlace(updatedPlaceData) {
-    const response = await fetch(`/api/places/${id}`, {
+  async function editProduct(updatedProductData) {
+    const response = await fetch(`/api/product/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(updatedPlaceData),
+      body: JSON.stringify(updatedProductData),
     });
 
     if (response.ok) {
-      router.push(`/places/${id}`);
+      router.push(`/pro/${id}`);
     }
   }
 
@@ -37,14 +37,14 @@ export default function EditPage() {
 
   return (
     <>
-      <h2 id="edit-place">Edit Place</h2>
-      <Link href={`/places/${id}`} passHref legacyBehavior>
+      <h2 id="edit-pro">Edit P</h2>
+      <Link href={`/pro/${id}`} passHref legacyBehavior>
         <StyledBackLink justifySelf="start">⬅  cancel edit</StyledBackLink>
       </Link>
       <Form
-        onSubmit={editPlace}
-        formName={"edit-place"}
-        defaultData={placeData}
+        onSubmit={editProduct}
+        formName={"edit-product"}
+        defaultData={proData}
       />
     </>
   );
