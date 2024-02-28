@@ -1,8 +1,9 @@
-
+import { useRouter } from "next/router";
 import { useState } from "react";
 import CheckoutPage from "@/pages/checkout";
 import Image from "next/image";
 import styled from "styled-components";
+import { UseFavorite } from "@/pages/checkout1/favoredPro";
 
 const StyledButton = styled.button`
   position: relative;
@@ -26,10 +27,24 @@ const Icon = styled.header`
 export default function FavoriteButton({isFavorite, productId}) {
   // const [isFavorite, setIsFavorite] = useState(false);
   const [localIsFavorite, setLocalIsFavorite] = useState(isFavorite);
+  const router = useRouter();
+
   const onToggleFavorite = async () => {
-  console.log("productId=>", productId);
+    console.log("isFavorite=>", isFavorite);
+    setLocalIsFavorite((prevIsFavorite) => !prevIsFavorite);
+    await router.push(`/checkout/${[isFavorite]}`);
   //await CheckoutPage.create({ userId: '65d60d41c8aa85df5a737cce', productId: ['65cdf6e36b3b635beee1acd5']})
-  setLocalIsFavorite((prevIsFavorite) => !prevIsFavorite);
+  //await CheckoutPage.create({ userId: '65d60d41c8aa85df5a737cce', productId: ['65cdf6e36b3b635beee1acd5']})
+
+  // router.push(`/checkout/${productId}`);
+  // const { toggleFavorite } = UseFavorite();
+
+  /* const onToggleFavorite = () => {
+    console.log('productId=>', productId);
+    toggleFavorite(productId); */
+
+
+
 
    };
   return (

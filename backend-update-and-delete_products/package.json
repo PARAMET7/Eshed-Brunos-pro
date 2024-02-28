@@ -24,13 +24,14 @@
     "next": "13.4.7",
     "next-auth": "^4.24.6",
     "phosphor-react": "^1.4.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.1",
     "sort-by": "^1.2.0",
     "styled-components": "^6.1.8",
     "swr": "^2.2.5",
     "tg-use-local-storage-state": "^16.0.3",
+    "use-context-selector": "^2.0.0-alpha.5",
     "use-local-storage-state": "^19.1.0"
   },
   "devDependencies": {

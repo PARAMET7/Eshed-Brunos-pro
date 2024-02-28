@@ -5,6 +5,10 @@ import {SessionProvider} from "next-auth/react";
 import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
 import useSWR from "swr";
 import { useState } from "react";
+import FavoriteButton from "@/components/Button/FavoriteButton.js";
+import CheckoutPage from "./checkout.js";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { FavoriteProvider } from "./checkout1/favoredPro.js";
 
 const fetcher = async (...args) => {
   const response = await fetch(...args);
@@ -26,7 +30,7 @@ export default function App({ Component, pageProps, session }) {
   //   "id",
   //   { defaultValue: [] }
   // );
-  const [shopingCart, setShopingCart] = useState([]);
+  const [shopingCart, setShopingCart] = useState("/api/checkout",[]);
 
 
   function handleToggleShopingCart(id) {
@@ -37,12 +41,14 @@ export default function App({ Component, pageProps, session }) {
           productInfo.id === id
             ? { id, isFavorite: !productInfo.isFavorite }
             : productInfo
-        )
-      );
-    } else {
-      setShopingCart([...shopingCart, { id, isFavorite: true }]);
-    }
-  }
+            )
+            );
+          } else {
+            setShopingCart([...shopingCart, { id, isFavorite: true }]);
+          }
+        }
+
+
   return (
     <SWRConfig
       value={{
@@ -58,14 +64,17 @@ export default function App({ Component, pageProps, session }) {
       <Layout>
         <GlobalStyle />
           <SessionProvider session={session}>
+          <FavoriteProvider>
             <Component {...pageProps}
             product={isLoading || error ? [] : data}
             shopingCart={shopingCart}
             onToggleFavorite={handleToggleShopingCart}
-            
+
              />
+          </FavoriteProvider>
           </SessionProvider>
       </Layout>
     </SWRConfig>
+      // <Route path="/checkout" component={CheckoutPage} />
   );
 }

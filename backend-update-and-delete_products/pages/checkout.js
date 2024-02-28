@@ -10,6 +10,11 @@ import Link from "next/link";
 import { StyledImage } from "@/components/StyledImage/StyledImage";
 import { StyledButton } from "@/components/Button/Button.styled";
 import { useRouter } from "next/router";
+import Form from "@/components/Form/Form";
+import { useState } from "react";
+import { UseFavorite } from "./checkout1/favoredPro";
+
+
 
 const ListItem = styled.li`
   gap: 10rem;
@@ -36,20 +41,51 @@ const ButtonContainer = styled.section`
   }
 `;
 
+// const id = FavoriteButton.productId;
+// console.log("=====",id);
+// export default function CheckoutPage() {
+//   const router = useRouter();
+//   const { isReady } = router;
+//   const { productId } = router.query;
+//   console.log('productId=>', productId);
+
+//   const { favoriteProductIds } = useFavorite();
+//   const isProductInFavorites = favoriteProductIds.includes(productId);
 
 export default function CheckoutPage() {
-  // const [selectedProPiece, setSelectedProPiece] = useState(null);
+
+  // const [proId, setProId] = useState();
   const router = useRouter();
   const { isReady } = router;
-  const { id } = router.query;
-  const {
-    data: { product } = {},
-    isLoading,
-    error,
+  const { productId } = router.query;
+  console.log("productId=>",productId);
 
-  } = useSWR(`api/checkout/${id}`);
+  const { favoriteProductIds } = UseFavorite();
+  const isProductInFavorites = favoriteProductIds.includes(productId);
 
+
+  const fetcher = (url) => fetch(url).then((res) => res.json());
+
+  const { data, error } = useSWR(productId ? `/api/checkoput/${productId}` : null, fetcher);
+  const isLoading = !data && !error;
+  console.log("data=>",data);
   const loadingMessage = "Loading...";
+
+
+
+  // async function addProduct(pro) {
+  //   const response = await fetch(`/api/products`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //     },
+  //     body: JSON.stringify(pro),
+  //   });
+
+  //   if (response.ok) {
+  //     router.push("/");
+  //   }
+  // }
 
   // useEffect(() => {
   //   setSelectedProPiece(pro.find((p) => p.id === id));
@@ -58,6 +94,7 @@ export default function CheckoutPage() {
   if (!isReady) return <h2>{loadingMessage}</h2>;
   if (isLoading) return <h2>{loadingMessage}</h2>;
   if (error) return <h2>Error...</h2>;
+  const product = data.id;
 
   async function deleteProduct() {
     await fetch(`api/checkout/${id}`, {
@@ -71,6 +108,8 @@ export default function CheckoutPage() {
   return (
     <>
       <ImageContainer>
+      {/* <FavoriteButton roductInfo={roductInfo} product={id} onToggleFavorite={onToggleFavorite}/> */}
+
 
           <StyledImage
             src={product.image}
@@ -98,6 +137,7 @@ export default function CheckoutPage() {
         id={id}
         mutate={mutate}
       /> */}
+      <Form onSubmit={addProduct} formName={"add-product"} />
     </>
   );
 }
