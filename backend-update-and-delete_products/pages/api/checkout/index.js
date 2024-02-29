@@ -1,11 +1,11 @@
 // import User from "../../../db/models/User";
-import connect from "@/db/Product";
+import dbConnect from "@/db/connect";
 import { Product } from "@/db/models/Product";
 
 export default async function handler(request, response) {
   // await Checkout.create({ userId: '65d60d41c8aa85df5a737cce', products: ['65cdf6e36b3b635beee1acd5']})
 
-  await connect();
+  await dbConnect();
 
   if (request.method === "GET") {
     const products = await Product.find();

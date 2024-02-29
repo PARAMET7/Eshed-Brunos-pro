@@ -1,5 +1,5 @@
 // import ProPieces from "@/components/Pro/ProPieces";
-import Card from "@/components/Card/Card";
+// import Card from "@/components/Card/Card";
 // import styled from "styled-components";
 import useSWR from "swr";
 import ProPieces from "@/components/Pro/ProPieces";
@@ -15,13 +15,13 @@ import { useState } from "react";
 import { UseFavorite } from "./checkout1/favoredPro";
 import FavoriteButton from "@/components/Button/FavoriteButton";
 
-const ListItem = styled.li`
-  gap: 10rem;
-  padding: 15px;
-  position: relative;
-  align-items: center;
-  width: 400px;
-`;
+// const ListItem = styled.li`
+//   gap: 10rem;
+//   padding: 15px;
+//   position: relative;
+//   align-items: center;
+//   width: 400px;
+// `;
 
 const ImageContainer = styled.div`
   position: relative;
