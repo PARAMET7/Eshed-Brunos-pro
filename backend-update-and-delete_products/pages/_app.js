@@ -2,12 +2,12 @@ import GlobalStyle from "../styles.js";
 import { SWRConfig } from "swr";
 import Layout from "@/components/Layout/Layout.js";
 import {SessionProvider} from "next-auth/react";
-import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
+// import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
 import useSWR from "swr";
 import { useState } from "react";
-import FavoriteButton from "@/components/Button/FavoriteButton.js";
-import CheckoutPage from "./checkout.js";
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+// import FavoriteButton from "@/components/Button/FavoriteButton.js";
+// import CheckoutPage from "./checkout.js";
+// import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { FavoriteProvider } from "./checkout1/favoredPro.js";
 
 const fetcher = async (...args) => {
