@@ -4,7 +4,8 @@ import styled from "styled-components";
 import { StyledImage } from "../StyledImage/StyledImage";
 import Image from 'next/image';
 import  FavoriteButton  from "../Button/FavoriteButton";
-
+import React, { use, useState } from "react";
+// import Counter from "../Counter/Counter";
 
 const Article = styled.article`
   margin-top: 20px;
@@ -38,7 +39,7 @@ const ImageContainer = styled.div`
 const StyledCaptionContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
 
 const StyledProduct = styled.p`
@@ -97,9 +98,29 @@ const StyledFrameContainer = styled.div`
   margin:0;
   width: 100%;
 `
+const StyledButton = styled.button`
+  background-color: ${(props) => (props.isFavorite ? "lightcoral" : "white")};
+  position: relative;
+  top: 10px;
+  right: 0;
+  margin: 3px; // Adjust the margin for positioning
+  padding: 3px;
+  background: inherit;
+  border: none;
+  background-color: transparent;
+  /* opacity: 0.6; */
+  cursor: pointer;
+`;
 
 export default function Card({ name, price, currency, category, image, id , onToggleFavorite}) {
   console.log(Image);
+  const [count, setCount] = useState(0);
+  // function increment(){
+  //   setState ({
+  //     count: this.state.count +1
+  //   })
+
+  // }
 
   return (
 
@@ -118,23 +139,25 @@ export default function Card({ name, price, currency, category, image, id , onTo
         <StyledCaptionContainer>
           <FavoriteButton productId={id} onToggleFavorite={onToggleFavorite}>
             <Link href={`checkout/${[id]}`}  >
-
             </Link>
           </FavoriteButton>
-
+          {/* <div {this.state.count}> */}
+            <StyledButton onClick={() => setCount(count + 1)}>➕ {count}</StyledButton>
+          {/* </div> */}
           <StyledFrameContainer>
             <StyledProduct>{name}</StyledProduct>
             <StyledProduct>{price}</StyledProduct>
             <StyledProduct>{currency}</StyledProduct>
             <StyledProduct>{category}</StyledProduct>
           </StyledFrameContainer>
+          <StyledButton onClick={() => setCount(count - 1)}>➖</StyledButton>
         </StyledCaptionContainer>
+            <button>
+                <Link href={`products/${id}`}  >
+                  More Info
+                </Link>
+            </button>
       </Figure>
-      <button>
-          <Link href={`products/${id}`}  >
-            More Info
-          </Link>
-      </button>
     </Article>
   );
 }
