@@ -30,7 +30,7 @@ export default function App({ Component, pageProps, session }) {
   //   "id",
   //   { defaultValue: [] }
   // );
-  const [shopingCart, setShopingCart] = useState("/api/checkout",[]);
+  const [shopingCart, setShopingCart] = useState([]);
 
 
   function handleToggleShopingCart(id) {

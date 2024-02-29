@@ -13,8 +13,7 @@ import { useRouter } from "next/router";
 import Form from "@/components/Form/Form";
 import { useState } from "react";
 import { UseFavorite } from "./checkout1/favoredPro";
-
-
+import FavoriteButton from "@/components/Button/FavoriteButton";
 
 const ListItem = styled.li`
   gap: 10rem;
@@ -131,6 +130,17 @@ export default function CheckoutPage() {
           Delete Location
         </StyledButton>
       </ButtonContainer>
+      <ProPieces
+        id={pro.id}
+        title={pro.name}
+        image={pro.image}
+        onToggleFavorite={onToggleFavorite}
+      />
+      <FavoriteButton
+      id={id}
+      onToggleFavorite={onToggleFavorite}
+
+      />
       {/* <Comments
         locationName={place.name}
         comments={place.comments}

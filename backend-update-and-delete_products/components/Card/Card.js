@@ -104,9 +104,7 @@ export default function Card({ name, price, currency, category, image, id , onTo
   return (
 
     <Article>
-
       <Figure>
-
         <ImageContainer>
           <StyledImage
             src={image}
@@ -118,7 +116,11 @@ export default function Card({ name, price, currency, category, image, id , onTo
           />
         </ImageContainer>
         <StyledCaptionContainer>
-        <FavoriteButton productId={id} onToggleFavorite={onToggleFavorite}/>
+          <FavoriteButton productId={id} onToggleFavorite={onToggleFavorite}>
+            <Link href={`checkout/${[id]}`}  >
+
+            </Link>
+          </FavoriteButton>
 
           <StyledFrameContainer>
             <StyledProduct>{name}</StyledProduct>
@@ -128,11 +130,11 @@ export default function Card({ name, price, currency, category, image, id , onTo
           </StyledFrameContainer>
         </StyledCaptionContainer>
       </Figure>
-
-        <Link href={`products/${id}`}  >
-          More Info
-        </Link>
-
+      <button>
+          <Link href={`products/${id}`}  >
+            More Info
+          </Link>
+      </button>
     </Article>
   );
 }
