@@ -1,6 +1,6 @@
 //TitleBar.js
 import styled from "styled-components";
-import { StyledImage } from "@/components/StyledImage/StyledImage";
+import { StyledImage } from "../StyledImage/StyledImage";
 import Link from "next/link.js";
 // import { StyledLink } from "@/components/Link/Link.styled";
 import React from "react";

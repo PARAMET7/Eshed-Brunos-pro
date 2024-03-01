@@ -1,17 +1,17 @@
-import Link from "next/link.js";
-import styled from "styled-components";
+// import Link from "next/link.js";
+// import styled from "styled-components";
 import { useRouter } from "next/router";
-import Form from "@/components/Form/Form.js";
-import { StyledLink } from "@/components/Link/Link.styled";
+import { Form } from "react-router-dom";
+// import StyledLink from "../components/Link/Link.styled";
 // import useSWR from "swr";
 // import mongoose from "mongoose";
 
-const StyledBackLink = styled(StyledLink)`
-  justify-self: flex-start;
-  position:fixed;
-  top:18px;
-  z-index: 101;
-`;
+// const StyledBackLink = styled(StyledLink)`
+//   justify-self: flex-start;
+//   position:fixed;
+//   top:18px;
+//   z-index: 101;
+// `;
 
 export default function FindProductPage() {
   const router = useRouter();

@@ -1,6 +1,6 @@
 // api/jokes/index.js
-import dbConnect from "@/db/connect";
-import Product from "@/db/models/Product";
+import dbConnect from "../../../db/connect";
+import Product from "../../../db/models/Product";
 // import Comment from "../../../../db/models/Comment";
 
 
@@ -16,4 +16,3 @@ export default async function handler(request, response) {
     return response.status(200).json(products);
   }
 }
-

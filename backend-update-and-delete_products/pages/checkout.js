@@ -2,18 +2,18 @@
 // import Card from "@/components/Card/Card";
 // import styled from "styled-components";
 import useSWR from "swr";
-import ProPieces from "@/components/Pro/ProPieces";
+import ProPieces from "../components/Pro/ProPieces";
 import styled from "styled-components";
 // import Product from "@/db/models/Product";
 import Link from "next/link";
 // import { useRouter } from "next/router.js";
-import { StyledImage } from "@/components/StyledImage/StyledImage";
-import { StyledButton } from "@/components/Button/Button.styled";
+import { StyledImage } from "../components/StyledImage/StyledImage";
+// import StyledButton from "../components/Button/Button.styled";
 import { useRouter } from "next/router";
-import Form from "@/components/Form/Form";
+import Form from "../components/Form/Form";
 import { useState } from "react";
 import { UseFavorite } from "./checkout1/favoredPro";
-import FavoriteButton from "@/components/Button/FavoriteButton";
+import FavoriteButton from "../components/Button/FavoriteButton";
 // import ProductDetailsPage from "./products/[id]";
 import products from "../resources/products.json"
 
@@ -145,9 +145,9 @@ export default function CheckoutPage(product, roductInfo, onToggleFavorite) {
         <ButtonContainer>
         <Link href={`/checkout/${products.id}`} passHref legacyBehavior>
         </Link>
-        <StyledButton onClick={deleteProduct} type="button" variant="delete">
+        {/* <StyledButton onClick={deleteProduct} type="button" variant="delete">
           Delete Location
-        </StyledButton>
+        </StyledButton> */}
       </ButtonContainer>
       <ProPieces
         id={pro.id}

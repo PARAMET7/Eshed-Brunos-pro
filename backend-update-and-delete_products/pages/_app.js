@@ -1,6 +1,6 @@
 import GlobalStyle from "../styles.js";
 import { SWRConfig } from "swr";
-import Layout from "@/components/Layout/Layout.js";
+import Layout from "../components/Layout/Layout.js";
 import {SessionProvider} from "next-auth/react";
 // import { useImmerLocalStorageState } from "../lib/hook/useImmerLocalStorageState.js";
 import useSWR from "swr";

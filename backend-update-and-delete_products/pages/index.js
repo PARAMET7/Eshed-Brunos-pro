@@ -4,9 +4,9 @@
 // import Link from "next/link.js";
 import styled from "styled-components";
 import useSWR from "swr";
-import Card from "@/components/Card/Card";
-import { StyledLink } from "@/components/Link/Link.styled";
-import ProPieces from "@/components/Pro/ProPieces";
+import Card from "../components/Card/Card";
+import { StyledLink } from "../components/StyledLink/StyledLink";
+import ProPieces from "../components/Pro/ProPieces";
 
 
 const List = styled.ul`
@@ -35,6 +35,7 @@ const Heading = styled.h1`
 `;
 
 const FixedLink = styled(StyledLink)`
+  background-color: pink;
   z-index: 100;
   position: fixed;
   bottom: 50px;
@@ -56,7 +57,7 @@ export default function HomePage({ product, roductInfo, onToggleFavorite }) {
     <>
       <br/>
       <List role="list">
-        <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
+        {/* <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/> */}
 
         {data.map((p) => {
           return (
