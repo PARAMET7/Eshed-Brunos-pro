@@ -125,24 +125,23 @@ export default function CheckoutPage(product, roductInfo, onToggleFavorite) {
 
   return (
     <>
-      <ImageContainer>
       {/* <FavoriteButton roductInfo={roductInfo} product={id} onToggleFavorite={onToggleFavorite}/> */}
-      <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
-
-
-          <StyledImage
-            src={product.image}
-            priority
-            fill
-            sizes="(max-width: 768px) 100vw,
-                (max-width: 1200px) 50vw,
-                33vw"
-            alt=""
-          />
-        </ImageContainer>
-        <h2>
-          {products.name},
-        </h2>
+      <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}>
+          <ImageContainer>
+            <StyledImage
+              src={product.image}
+              priority
+              fill
+              sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+              alt=""
+            />
+          </ImageContainer>
+          <h2>
+            {products.name},
+          </h2>
+        </ProPieces>
         <ButtonContainer>
         <Link href={`/checkout/${products.id}`} passHref legacyBehavior>
         </Link>

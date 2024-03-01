@@ -112,7 +112,7 @@ const StyledButton = styled.button`
   cursor: pointer;
 `;
 
-export default function Card({ name, price, currency, category, image, id , onToggleFavorite}) {
+export default function Card({ name, price, currency, category, image, id ,isFavorite, onToggleFavorite}) {
   console.log(Image);
   const [count, setCount] = useState(0);
   // function increment(){
@@ -137,8 +137,8 @@ export default function Card({ name, price, currency, category, image, id , onTo
           />
         </ImageContainer>
         <StyledCaptionContainer>
-          <FavoriteButton productId={id} onToggleFavorite={onToggleFavorite}>
-            <Link href={`checkout/${[id]}`}  >
+          <FavoriteButton productId={id} isFavorite={isFavorite} onToggleFavorite={() => onToggleFavorite(id)}>
+            <Link href={`checkout/${[id]}`}>
             </Link>
           </FavoriteButton>
           {/* <div {this.state.count}> */}
