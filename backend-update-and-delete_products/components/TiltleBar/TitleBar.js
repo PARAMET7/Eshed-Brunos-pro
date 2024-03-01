@@ -7,7 +7,18 @@ import React from "react";
 //import { Link } from "react-router-dom";
 import { ShoppingCart } from "phosphor-react";
 import { StyledLink } from "../StyledLink/StyledLink";
+import Card from "../Card/Card";
 
+const StyledFrameContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  justify-content: space-between;
+  padding: 10px;
+  opacity: 0.6;
+  margin:0;
+  width: 100%;
+`
 
 const FixedLink = styled(StyledLink)`
   background-color: black;
@@ -52,7 +63,13 @@ export default function TitleBar() {
         <br/>
         <Link href={"./login"} ><button>Login</button></Link>
         {/* <Link href={"./checkout"}> */}
-          <FixedLinkButton href={`/checkout`}> 🛒 </FixedLinkButton>
+        <FixedLinkButton href={`/checkout`}> 🛒
+          <button className="rounded-circle">
+            <div className="rounded-circle bg-danger d-flex justify-content-centr align-items-center"
+            style={{color: "magenta", width: "1rem", height:"1rem", position: "relative"}}
+            >4</div>
+          </button>
+        </FixedLinkButton>
           {/* <button>lLogin</button> */}
         {/* </Link> */}
     </Headline>

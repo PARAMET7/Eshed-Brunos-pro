@@ -14,6 +14,11 @@ import Form from "@/components/Form/Form";
 import { useState } from "react";
 import { UseFavorite } from "./checkout1/favoredPro";
 import FavoriteButton from "@/components/Button/FavoriteButton";
+// import ProductDetailsPage from "./products/[id]";
+import products from "../resources/products.json"
+
+console.log("=======", products);
+
 
 // const ListItem = styled.li`
 //   gap: 10rem;
@@ -51,13 +56,27 @@ const ButtonContainer = styled.section`
 //   const { favoriteProductIds } = useFavorite();
 //   const isProductInFavorites = favoriteProductIds.includes(productId);
 
-export default function CheckoutPage() {
+export default function CheckoutPage(product, roductInfo, onToggleFavorite) {
 
   // const [proId, setProId] = useState();
   const router = useRouter();
   const { isReady } = router;
   const { productId } = router.query;
   console.log("productId=>",productId);
+
+  async function addProduct(pro) {
+    const response = await fetch(`/api/checkout`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(pro),
+    });
+
+    if (response.ok) {
+      router.push("/");
+    }
+  }
 
   const { favoriteProductIds } = UseFavorite();
   const isProductInFavorites = favoriteProductIds.includes(productId);
@@ -93,7 +112,7 @@ export default function CheckoutPage() {
   if (!isReady) return <h2>{loadingMessage}</h2>;
   if (isLoading) return <h2>{loadingMessage}</h2>;
   if (error) return <h2>Error...</h2>;
-  const product = data.id;
+  const products = data.id;
 
   async function deleteProduct() {
     await fetch(`api/checkout/${id}`, {
@@ -108,6 +127,7 @@ export default function CheckoutPage() {
     <>
       <ImageContainer>
       {/* <FavoriteButton roductInfo={roductInfo} product={id} onToggleFavorite={onToggleFavorite}/> */}
+      <ProPieces roductInfo={roductInfo} product={product} onToggleFavorite={onToggleFavorite}/>
 
 
           <StyledImage
@@ -121,10 +141,10 @@ export default function CheckoutPage() {
           />
         </ImageContainer>
         <h2>
-          {product.name},
+          {products.name},
         </h2>
         <ButtonContainer>
-        <Link href={`/checkout/${product.id}`} passHref legacyBehavior>
+        <Link href={`/checkout/${products.id}`} passHref legacyBehavior>
         </Link>
         <StyledButton onClick={deleteProduct} type="button" variant="delete">
           Delete Location
@@ -147,6 +167,7 @@ export default function CheckoutPage() {
         id={id}
         mutate={mutate}
       /> */}
+      <Link href="/" passHref legacyBehavior></Link>
       <Form onSubmit={addProduct} formName={"add-product"} />
     </>
   );
